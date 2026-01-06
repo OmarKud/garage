@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{B3BC4182-E48B-4D1C-A80B-61FAAE52F750}") = "MyOpenGLLegacy", "MyOpenGLLegacy\MyOpenGLLegacy.vcxproj", "{2A609142-00E5-4A53-9D6A-D8D34985E815}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A609142-00E5-4A53-9D6A-D8D34985E815}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2A609142-00E5-4A53-9D6A-D8D34985E815}.Debug|Win32.Build.0 = Debug|Win32
+		{2A609142-00E5-4A53-9D6A-D8D34985E815}.Release|Win32.ActiveCfg = Release|Win32
+		{2A609142-00E5-4A53-9D6A-D8D34985E815}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A3552B3-A3BD-4EF2-A728-5B44AC18A93F}
+	EndGlobalSection
+EndGlobal

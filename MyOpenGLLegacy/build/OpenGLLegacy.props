@@ -1,0 +1,33 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemDefinitionGroup>
+
+    <!-- Header include path -->
+    <ClCompile>
+      <AdditionalIncludeDirectories>
+        $(SolutionDir)OpenGL.SharedModule\external\include;
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+
+    <!-- Linker paths + libs -->
+    <Link>
+      <AdditionalLibraryDirectories>
+        $(SolutionDir)OpenGL.SharedModule\external\lib\$(Platform);
+        %(AdditionalLibraryDirectories)
+      </AdditionalLibraryDirectories>
+
+      <AdditionalDependencies>
+        OPENGL32.LIB;GLU32.LIB;GLAUX.LIB;glut32.lib;
+        %(AdditionalDependencies)
+      </AdditionalDependencies>
+    </Link>
+
+    <!-- Copy any DLLs (e.g., glut32.dll) next to the built exe -->
+    <PostBuildEvent>
+      <Command>
+        xcopy /Y /D "$(SolutionDir)OpenGL.SharedModule\external\bin\$(Platform)\*.dll" "$(OutDir)"
+      </Command>
+    </PostBuildEvent>
+
+  </ItemDefinitionGroup>
+</Project>
