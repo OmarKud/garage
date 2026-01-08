@@ -5,11 +5,3 @@ Release/
 MyOpenGLLegacy/Debug
 x64/
 x86/
-*.user
-*.suo
-
-# Build
-*.obj
-*.pdb
-*.ilk
-*.exe
