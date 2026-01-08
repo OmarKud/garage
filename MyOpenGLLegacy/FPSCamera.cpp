@@ -17,22 +17,44 @@ Vec3 FPSCamera::Forward() const
     return normalize(f);
 }
 
-Vec3 FPSCamera::Right(const Vec3& f) const
+Vec3 FPSCamera::ForwardFlat() const
 {
-    // يمين على مستوى الأرض
-    Vec3 r{ -f.z, 0.0f, f.x };
+    float yawR = deg2radf(yawDeg);
+
+    Vec3 f;
+    f.x = std::cos(yawR);
+    f.y = 0.0f;
+    f.z = std::sin(yawR);
+
+    return normalize(f);
+}
+
+Vec3 FPSCamera::RightFlat(const Vec3& fFlat) const
+{
+    // right on ground plane
+    Vec3 r{ -fFlat.z, 0.0f, fFlat.x };
     return normalize(r);
 }
 
 void FPSCamera::Update(float dt, const Input& input)
 {
+    // toggle mode once per press
+    if (input.Pressed('F')) {              // 'F' = 0x46 :contentReference[oaicite:1]{index=1}
+        flyMode = !flyMode;
+        if (!flyMode) pos.y = walkEyeY;    // snap back to walking height
+    }
+
     // mouse look
     yawDeg += input.MouseDX() * mouseSens;
     pitchDeg -= input.MouseDY() * mouseSens;
     pitchDeg = clampf(pitchDeg, -89.0f, 89.0f);
 
-    Vec3 f = Forward();
-    Vec3 r = Right(f);
+    Vec3 fFly = Forward();        // includes pitch
+    Vec3 fWalk = ForwardFlat();    // yaw only
+    Vec3 f = flyMode ? fFly : fWalk;
+
+    // keep strafing flat (feels stable even in fly)
+    Vec3 r = RightFlat(fWalk);
 
     Vec3 v{ 0,0,0 };
 
@@ -41,7 +63,17 @@ void FPSCamera::Update(float dt, const Input& input)
     if (input.IsDown('D')) v = v + r;
     if (input.IsDown('A')) v = v - r;
 
-    v.y = 0.0f; // مشي
+    if (flyMode)
+    {
+        // vertical in fly mode
+        if (input.IsDown(VK_SPACE))   v.y += 1.0f;
+        if (input.IsDown(VK_CONTROL)) v.y -= 1.0f;
+    }
+    else
+    {
+        // walk mode: no vertical movement
+        v.y = 0.0f;
+    }
 
     if (length(v) > 0.0001f)
     {
@@ -49,8 +81,9 @@ void FPSCamera::Update(float dt, const Input& input)
         pos = pos + dir * (moveSpeed * dt);
     }
 
-    // ثبّت ارتفاع العين
-    pos.y = 1.8f;
+    // lock height only in walk mode
+    if (!flyMode)
+        pos.y = walkEyeY;
 }
 
 void FPSCamera::ApplyView() const
