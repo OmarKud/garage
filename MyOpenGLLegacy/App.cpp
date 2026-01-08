@@ -6,13 +6,13 @@
 #include <GL/glu.h>
 
 #include "App.h"
+#include <Building.h>
 
 static App* g_app = nullptr;
 
 bool App::Init(HINSTANCE hInst)
 {
     g_app = this;
-
     WNDCLASSEXW wc{};
     wc.cbSize = sizeof(wc);
     wc.style = CS_OWNDC;
@@ -60,8 +60,15 @@ bool App::Init(HINSTANCE hInst)
     int h = r.bottom - r.top;
     if (h <= 0) h = 1;
 
-    world.Init(w, h);
 
+    int buildingHeight = 50,
+        buildingLength = 150,
+        buildingWidth = 250;
+
+    Building b = Building(Point(0, buildingHeight/2, -50), buildingHeight, buildingLength, buildingWidth);
+
+    b.Init();
+    world.Init(w, h,b);
     // أخفي الماوس (FPS)
     ShowCursor(FALSE);
     return true;

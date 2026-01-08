@@ -4,16 +4,20 @@
 #include <GL/glu.h>
 
 #include "World.h"
-#include "Texture.h"   // ✅ هون ضيفه
+#include "Texture.h"   
+#include <Cube.h>
+#include <Building.h>
 
 
-void World::Init(int w, int h)
+void World::Init(int w, int h, const Building& building)
 {
     width = w; height = h;
 
-    groundTex = LoadTexture2D("assets/textures/stone.jpg");
-    // ✅ HDR sky (أنت سميته بأي اسم، حط مساره)
+    groundTex = LoadTexture2D("assets/textures/dirt.jpg");
     skyTex = LoadHDRToLDRTexture2D("assets/textures/sky.hdr", 0.15f);
+    cubeTex = LoadTexture2D("assets/textures/stone.jpg");
+
+    b = std::make_unique<Building>(building); // ✅ store a safe copy
 }
 
 void World::Resize(int w, int h)
@@ -105,7 +109,7 @@ void World::DrawSkySphere(float radius, float yawOffsetDeg) const
     // رجّع الـ states
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glDisable(GL_TEXTURE_2D);
-    glEnable(GL_CULL_FACE);
+    //glEnable(GL_CULL_FACE);
     glDepthMask(GL_TRUE);
 }
 
@@ -166,10 +170,16 @@ void World::Render() const
 {
     Apply3D();
 
-    // ✅ السماء أولاً
-    DrawSkySphere(250.0f, 0.0f);
+    Cube cube(Point(0, 0, 0), 4, 4, 4);
+    cube.drawWithTexture(cubeTex, 1, 1);
 
+    if (b) b->draw(); // ✅ safe
     // بعدين الأرض + grid
-    DrawGround(50.0f, 0.0f);
-    DrawGrid(50.0f, 1.0f, 0.01f);
+    DrawGround(200.0f, 0.0f);
+
+    //DrawGrid(100.0f, 1.0f, 0.01f);
+    // ✅ السماء أولاً
+    //DrawSkySphere(250.0f, 0.0f);
+
 }
+
