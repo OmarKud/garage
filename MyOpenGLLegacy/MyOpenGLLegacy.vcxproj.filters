@@ -126,7 +126,7 @@
     <ClInclude Include="GLWin.h">
       <Filter>Source Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\stb_image.h">
+    <ClInclude Include="..\..\..\Users\ASUS\Downloads\Telegram Desktop\stb_image.h">
       <Filter>Source Files\Physics</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,7 +7,7 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-#include "../../../../Downloads/stb_image.h"
+#include "../../../Users/ASUS/Downloads/Telegram Desktop/stb_image.h"
 
 static float clamp01(float v) { return (v < 0.f) ? 0.f : (v > 1.f ? 1.f : v); }
 
