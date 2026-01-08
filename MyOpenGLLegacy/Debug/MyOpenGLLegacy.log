@@ -1,15 +1,6 @@
 ﻿  App.cpp
-  Car.cpp
-  DriverCamera.cpp
-  FPSCamera.cpp
-  Input.cpp
-  MainCar.cpp
-  OrbitCamera.cpp
-  main.cpp
-  Texture.cpp
-  World.cpp
-  Generating Code...
-  MyOpenGLLegacy.vcxproj -> C:\Users\layal\Desktop\Garage\garage\Debug\MyOpenGLLegacy.exe
-  C:\Users\layal\Desktop\Garage\garage\MyOpenGLLegacy\assets\textures\sky.hdr
-  C:\Users\layal\Desktop\Garage\garage\MyOpenGLLegacy\assets\textures\stone.jpg
-  2 File(s) copied
+  MyOpenGLLegacy.vcxproj -> C:\visual_studio_projects\garage\Debug\MyOpenGLLegacy.exe
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\dirt.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\sky.hdr
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\stone.jpg
+  3 File(s) copied
