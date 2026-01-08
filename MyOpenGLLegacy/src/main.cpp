@@ -10,4 +10,6 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, PWSTR, int)
         return 0;
     //0
     return app.Run();
+
+    //finally
 }
