@@ -1,6 +1,6 @@
 #include "Pyramid.h"
 #include <GL/glut.h>
-#include <bits/stdc++.h>
+#include <corecrt_math.h>
 #define pi 3.141592653589793238462643383279502884197
 
 Pyramid::Pyramid(Point center, unsigned int type, double hight, double base_angle)
