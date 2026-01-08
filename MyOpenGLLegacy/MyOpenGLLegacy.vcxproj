@@ -98,7 +98,6 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\stb_image.h" />
     <ClInclude Include="AABB.h" />
     <ClInclude Include="App.h" />
     <ClInclude Include="CameraBase.h" />
@@ -113,6 +112,7 @@
     <ClInclude Include="MainCar.h" />
     <ClInclude Include="Math3D.h" />
     <ClInclude Include="OrbitCamera.h" />
+    <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transparency.h" />
