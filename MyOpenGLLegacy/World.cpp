@@ -175,7 +175,7 @@ void World::Render() const
 
     if (b) b->draw(); // ✅ safe
     // بعدين الأرض + grid
-    DrawGround(200.0f, 0.0f);
+    DrawGround(1000.0f, 0.0f);
 
     //DrawGrid(100.0f, 1.0f, 0.01f);
     // ✅ السماء أولاً

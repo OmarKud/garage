@@ -11,19 +11,19 @@ void Building::Init()
 Building::Building(Point center, double height, double length, double width)
     : center(center), height(height), length(length), width(width),
 
-    leftWall(Point(center.x - (width / 2), center.y - (height / 2), center.z), height, length, 0.1),
+    leftWall(Point(center.x - (width / 2)+2.5, center.y - (height / 2), center.z), height, length, 5),
 
-    rightWall(Point(center.x + (width / 2), center.y - (height / 2), center.z), height, length, 0.1),
+    rightWall(Point(center.x + (width / 2)-2.5, center.y - (height / 2), center.z), height, length, 5),
 
-    behindWall(Point(center.x, center.y - (height / 2), center.z - (length / 2)), height, 0.1, width), // see note below
+    behindWall(Point(center.x, center.y - (height / 2), center.z - (length / 2)+2.4), height, 5, width-1), // see note below
 
-    roof(Point(center.x, center.y + (height / 2), center.z), 0.1, length, width),
+    roof(Point(center.x, center.y + (height / 2), center.z), 5, length, width),
 
     floor(Point(center.x, center.y - (height / 2), center.z), 0.1, length, width),
 
     innerWall1(
         Point(
-            center.x - (width / 4)-25,
+            center.x - (width / 4)-24,
             center.y - height / 2,
             center.z
         ),
@@ -32,7 +32,7 @@ Building::Building(Point center, double height, double length, double width)
         length * 0.5
     ),
     innerWall2(
-        Point(center.x +( width / 4) + 25,
+        Point(center.x +( width / 4) + 24,
             center.y - height / 2,
             center.z),
         height,
