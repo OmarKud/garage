@@ -12,4 +12,5 @@ struct AABB
             (p.y >= min.y && p.y <= max.y) &&
             (p.z >= min.z && p.z <= max.z);
     }
+
 };

@@ -1,4 +1,4 @@
-#include "Building.h"
+﻿#include "Building.h"
 #include <GL/gl.h>  
 #include "Cube.h"
 
@@ -11,7 +11,7 @@ void Building::Init()
 Building::Building(Point center, double height, double length, double width)
     : center(center), height(height), length(length), width(width),
 
-    leftWall(Point(center.x - (width / 2), center.y-(height/2), center.z), height, length, 0.1),
+    leftWall(Point(center.x - (width / 2), center.y - (height / 2), center.z), height, length, 0.1),
 
     rightWall(Point(center.x + (width / 2), center.y - (height / 2), center.z), height, length, 0.1),
 
@@ -19,9 +19,31 @@ Building::Building(Point center, double height, double length, double width)
 
     roof(Point(center.x, center.y + (height / 2), center.z), 0.1, length, width),
 
-    floor(Point(center.x, center.y - (height / 2), center.z), 0.1, length, width)
+    floor(Point(center.x, center.y - (height / 2), center.z), 0.1, length, width),
+
+    innerWall1(
+        Point(center.x - (width / 4)-17,
+            center.y - height / 2,
+            center.z
+        ),
+        height,
+        2,
+        length * 0.6
+    ),
+    innerWall2(
+        Point(center.x +( width / 4) + 17,
+            center.y - height / 2,
+            center.z),
+        height,
+        2,
+        length * 0.6
+    )
+
+
 {
+
 }
+
 
 //Building::Building(Point center, double height, double length, double width) 
 //{ 
@@ -44,5 +66,8 @@ void Building::draw()
     behindWall.drawWithTexture(texture, 1, 1);
     roof.drawWithTexture(texture, 1, 1);
     floor.drawWithTexture(texture, 1, 1);
+    innerWall1.drawWithTexture(texture, 1, 1);
+    innerWall2.drawWithTexture(texture, 1, 1);
+
 }
 
