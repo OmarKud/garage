@@ -11,6 +11,7 @@ class Building {
 		Point center;
 		double height, length, width;
 		Cube leftWall, rightWall, behindWall, roof, floor;
+
 		void Init();
 		GLuint texture = 0;
 	private:

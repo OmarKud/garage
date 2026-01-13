@@ -68,6 +68,7 @@ bool App::Init(HINSTANCE hInst)
     Building b = Building(Point(0, buildingHeight/2, -50), buildingHeight, buildingLength, buildingWidth);
 
     b.Init();
+
     world.Init(w, h,b);
     // أخفي الماوس (FPS)
     ShowCursor(FALSE);
