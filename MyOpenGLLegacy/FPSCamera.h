@@ -12,7 +12,7 @@ public:
     float yawDeg = -90.0f;
     float pitchDeg = 0.0f;
 
-    float moveSpeed = 6.0f;
+    float moveSpeed = 50.0f;
     float mouseSens = 0.12f;
 
     // ✅ toggle with F

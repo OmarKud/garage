@@ -22,21 +22,22 @@ Building::Building(Point center, double height, double length, double width)
     floor(Point(center.x, center.y - (height / 2), center.z), 0.1, length, width),
 
     innerWall1(
-        Point(center.x - (width / 4)-17,
+        Point(
+            center.x - (width / 4)-25,
             center.y - height / 2,
             center.z
         ),
         height,
-        2,
-        length * 0.6
+        4,
+        length * 0.5
     ),
     innerWall2(
-        Point(center.x +( width / 4) + 17,
+        Point(center.x +( width / 4) + 25,
             center.y - height / 2,
             center.z),
         height,
-        2,
-        length * 0.6
+        4,
+        length * 0.5
     )
 
 

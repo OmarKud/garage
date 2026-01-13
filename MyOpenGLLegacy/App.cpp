@@ -62,8 +62,8 @@ bool App::Init(HINSTANCE hInst)
 
 
     int buildingHeight = 50,
-        buildingLength = 150,
-        buildingWidth = 250;
+        buildingLength = 250,
+        buildingWidth = 350;
 
     Building b = Building(Point(0, buildingHeight/2, -50), buildingHeight, buildingLength, buildingWidth);
 
