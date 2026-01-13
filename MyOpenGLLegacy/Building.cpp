@@ -23,21 +23,21 @@ Building::Building(Point center, double height, double length, double width)
 
     innerWall1(
         Point(
-            center.x - (width / 4)-24,
+            center.x - (width / 3)-width*0.02,
             center.y - height / 2,
             center.z
         ),
         height,
         4,
-        length * 0.5
+        width * 0.28
     ),
     innerWall2(
-        Point(center.x +( width / 4) + 24,
+        Point(center.x +( width / 3) + width * 0.02,
             center.y - height / 2,
             center.z),
         height,
         4,
-        length * 0.5
+        width * 0.28
     )
 
 
