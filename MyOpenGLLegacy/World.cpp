@@ -13,7 +13,7 @@ void World::Init(int w, int h)
 
     groundTex = LoadTexture2D("assets/textures/stone.jpg");
     // ✅ HDR sky (أنت سميته بأي اسم، حط مساره)
-    skyTex = LoadHDRToLDRTexture2D("assets/textures/sky.hdr", 0.15f);
+   skyTex = LoadHDRToLDRTexture2D("assets/textures/sky.hdr", 0.15f);
 }
 
 void World::Resize(int w, int h)
