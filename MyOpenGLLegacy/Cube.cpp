@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 #include "Cube.h"
 #include <GL/gl.h>  
 #include <AABB.h>
+=======
+﻿#include "Cube.h"
+#include <GL/gl.h>  
+>>>>>>> BETA
 Cube::Cube(Point center, double height, double length, double width)
 {
     this->center = center;

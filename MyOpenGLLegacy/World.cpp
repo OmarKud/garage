@@ -13,9 +13,12 @@ void World::Init(int w, int h, const Building& building)
 {
     width = w; height = h;
 
+<<<<<<< HEAD
     groundTex = LoadTexture2D("assets/textures/stone.jpg");
    skyTex = LoadHDRToLDRTexture2D("assets/textures/sky.hdr", 0.15f);
 
+=======
+>>>>>>> BETA
     groundTex = LoadTexture2D("assets/textures/dirt.jpg");
     skyTex = LoadHDRToLDRTexture2D("assets/textures/sky.hdr", 0.15f);
     cubeTex = LoadTexture2D("assets/textures/stone.jpg");
@@ -40,7 +43,7 @@ void World::Apply3D() const
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(70.0, (double)width / (double)height, 0.05, 500.0);
+    gluPerspective(70.0, (double)width / (double)height, 0.8, 1500);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -180,9 +183,16 @@ void World::Render() const
     // بعدين الأرض + grid
     DrawGround(1000.0f, 0.0f);
 
+<<<<<<< HEAD
     //DrawGrid(100.0f, 1.0f, 0.01f);
     // ✅ السماء أولاً
     //DrawSkySphere(250.0f, 0.0f);
+=======
+    DrawSkySphere(1000.0f, 0.0f);
+    if (b) b->draw(); // ✅ safe
+    //DrawGrid(100.0f, 1.0f, 0.01f);
+    // ✅ السماء أولاً
+>>>>>>> BETA
 
 }
 

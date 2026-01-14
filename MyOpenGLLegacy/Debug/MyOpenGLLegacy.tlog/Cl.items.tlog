@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\App.cpp;C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\Debug\App.obj
 C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\Building.cpp;C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\Debug\Building.obj
 C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\Car.cpp;C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\Debug\Car.obj
@@ -14,3 +15,21 @@ C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\Pyramid.cpp;C:\Users\HP\
 C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\src\main.cpp;C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\Debug\main.obj
 C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\Texture.cpp;C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\Debug\Texture.obj
 C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\World.cpp;C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\Debug\World.obj
+=======
+C:\visual_studio_projects\garage\MyOpenGLLegacy\App.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\App.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\Building.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\Building.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\Car.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\Car.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\Cube.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\Cube.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\Cylinder.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\Cylinder.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\DriverCamera.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\DriverCamera.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\FPSCamera.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\FPSCamera.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\FrontWall.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\FrontWall.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\Input.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\Input.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\MainCar.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\MainCar.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\OrbitCamera.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\OrbitCamera.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\Point.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\Point.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\Pyramid.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\Pyramid.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\src\main.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\main.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\Texture.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\Texture.obj
+C:\visual_studio_projects\garage\MyOpenGLLegacy\World.cpp;C:\visual_studio_projects\garage\MyOpenGLLegacy\Debug\World.obj
+>>>>>>> BETA

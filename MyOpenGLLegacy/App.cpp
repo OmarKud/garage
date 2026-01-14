@@ -85,12 +85,12 @@ void App::RenderFrame(float dt)
 
     glViewport(0, 0, w, h);
 
-    glMatrixMode(GL_PROJECTION);
+    /*glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(70.0, (double)w / (double)h, 0.05, 200.0);
 
     glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
+    glLoadIdentity();*/
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
