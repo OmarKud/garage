@@ -37,7 +37,7 @@ void World::Apply3D() const
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(70.0, (double)width / (double)height, 0.05, 500.0);
+    gluPerspective(70.0, (double)width / (double)height, 0.8, 1500);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -173,13 +173,13 @@ void World::Render() const
     Cube cube(Point(0, 0, 0), 4, 4, 4);
     cube.drawWithTexture(cubeTex, 1, 1);
 
-    if (b) b->draw(); // ✅ safe
     // بعدين الأرض + grid
     DrawGround(1000.0f, 0.0f);
 
+    DrawSkySphere(1000.0f, 0.0f);
+    if (b) b->draw(); // ✅ safe
     //DrawGrid(100.0f, 1.0f, 0.01f);
     // ✅ السماء أولاً
-    //DrawSkySphere(250.0f, 0.0f);
 
 }
 

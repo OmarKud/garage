@@ -45,11 +45,11 @@ void Building::draw()
     leftWall.drawWithTexture(wallTexture, 1, 1);
     rightWall.drawWithTexture(wallTexture, 1, 1);
     behindWall.drawWithTexture(wallTexture, 1, 1);
-
-    frontWall.draw(); // ✅ draw it
-
     roof.drawWithTexture(roofTexture, 1, 1);
     floor.drawWithTexture(floorTexture, 50, 10);
     innerWall1.drawWithTexture(wallTexture, 1, 1);
     innerWall2.drawWithTexture(wallTexture, 1, 1);
+
+    frontWall.draw(); // ✅ draw it
+
 }

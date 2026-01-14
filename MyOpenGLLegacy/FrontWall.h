@@ -7,7 +7,7 @@ class FrontWall {
 public:
     FrontWall(Point center, double height, double length, double width);
     void draw();
-
+    static void drawGlassCube(Point center, float height, float length, float width);
     void Init();              // load texture
     void SetTexture(GLuint t) { texture = t; } // optional if you want Building texture
 

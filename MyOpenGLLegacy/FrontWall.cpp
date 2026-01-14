@@ -135,8 +135,52 @@ void FrontWall::draw()
     wall2.drawWithTexture(texture, 1, 1);
     wall3.drawWithTexture(texture, 1, 1);
     wall4.drawWithTexture(texture, 1, 1);
-    wall5.drawWithTexture(texture, 1, 1);
-    wall6.drawWithTexture(texture, 1, 1);
     wall7.drawWithTexture(texture, 1, 1);
     wall8.drawWithTexture(texture, 1, 1);
+
+    //left
+    drawGlassCube(Point(
+        center.x - width * 0.325,
+        center.y - height*0.5,
+        center.z),
+        height * 0.75,
+        5,
+        (width * 0.25));
+    //right
+    drawGlassCube(Point(
+        center.x + width * 0.325,
+        center.y - height * 0.5,
+        center.z),
+        height * 0.75,
+        5,
+        (width * 0.25));
 }
+
+void FrontWall::drawGlassCube(Point center, float height, float length, float width)
+{
+    // اعزل كل التغييرات داخل الدالة
+    glPushAttrib(GL_ENABLE_BIT | GL_LIGHTING_BIT | GL_CURRENT_BIT | GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    // للشفافية: ما نكتب على depth
+    glDepthMask(GL_FALSE);
+
+    // لون البلور (أزرق خفيف)
+    glColor4f(0.6f, 0.8f, 1.0f, 0.35f);
+
+    // لمعان (Specular) — بس ما نفعّل/نطفّي الإضاءة هون
+    GLfloat spec[]  = { 0.9f, 0.9f, 1.0f, 1.0f };
+    GLfloat shine[] = { 90.0f };
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, spec);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shine);
+
+    Cube glassCube(center, height, length, width);
+    glassCube.draw();
+
+    glPopAttrib(); // يرجّع كل شيء كما كان
+}
+
+
+
