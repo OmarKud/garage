@@ -38,6 +38,9 @@
     <Filter Include="Source Files\Rooms">
       <UniqueIdentifier>{a251ebb7-b88a-4353-a406-49d155df9ccc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\FrontWall">
+      <UniqueIdentifier>{0e16c26a-01c6-4949-8808-b02b1414cf69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -84,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="Pyramid.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontWall.cpp">
+      <Filter>Source Files\FrontWall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -147,11 +153,18 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="Pyramid.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="FrontWall.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Downloads\textures\stone.jpg">
       <Filter>Source Files\assets\textures</Filter>
     </Image>
     <Image Include="assets\textures\stone.jpg" />
+    <Image Include="assets\textures\main_floor2.jpg">
+      <Filter>Source Files\assets\textures</Filter>
+    </Image>
+    <Image Include="assets\textures\main_floor1.jpg">
+      <Filter>Source Files\assets\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

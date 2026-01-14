@@ -93,6 +93,7 @@
     <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="DriverCamera.cpp" />
     <ClCompile Include="FPSCamera.cpp" />
+    <ClCompile Include="FrontWall.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="MainCar.cpp" />
     <ClCompile Include="OrbitCamera.cpp" />
@@ -113,6 +114,7 @@
     <ClInclude Include="DriverCamera.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FPSCamera.h" />
+    <ClInclude Include="FrontWall.h" />
     <ClInclude Include="GLWin.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Point.h" />
@@ -130,6 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Downloads\textures\stone.jpg" />
+    <Image Include="assets\textures\main_floor1.jpg" />
+    <Image Include="assets\textures\main_floor2.jpg" />
     <Image Include="assets\textures\stone.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
