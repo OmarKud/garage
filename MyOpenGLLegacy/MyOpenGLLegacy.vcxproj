@@ -134,12 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Downloads\textures\stone.jpg" />
-<<<<<<< HEAD
     <Image Include="assets\textures\roof.jpg" />
-=======
     <Image Include="assets\textures\main_floor1.jpg" />
     <Image Include="assets\textures\main_floor2.jpg" />
->>>>>>> 7c21ceb087269604ea5f816a09329b1142c445bb
     <Image Include="assets\textures\stone.jpg" />
     <Image Include="assets\textures\wall.jpg" />
     <Image Include="assets\textures\wood.jpg" />

@@ -40,15 +40,7 @@ Building::Building(Point center, double height, double length, double width)
           Point(center.x, center.y, center.z + (length / 2) - 2.4),
           height,
           5,
-          width - 0.1),
-      luxuryRoom(
-          Point(
-              center.x - width / 2 + (width / 4) - 50,
-              center.y - (height / 2),
-              center.z - 85),
-          height - 1,
-          length * 0.47,
-          width * 0.275)
+          width - 0.1)
 {
     Init();
 }
