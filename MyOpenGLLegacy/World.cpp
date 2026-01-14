@@ -4,14 +4,14 @@
 #include <GL/glu.h>
 
 #include "World.h"
-#include "Texture.h"   
+#include "Texture.h"
 #include <Cube.h>
 #include <Building.h>
 
-
-void World::Init(int w, int h, const Building& building)
+void World::Init(int w, int h, const Building &building)
 {
-    width = w; height = h;
+    width = w;
+    height = h;
 
     groundTex = LoadTexture2D("assets/textures/dirt.jpg");
     skyTex = LoadHDRToLDRTexture2D("assets/textures/sky.hdr", 0.15f);
@@ -26,7 +26,7 @@ void World::Resize(int w, int h)
     height = (h <= 0) ? 1 : h;
 }
 
-void World::Update(float dt, const Input& input)
+void World::Update(float dt, const Input &input)
 {
     cam.Update(dt, input);
 }
@@ -45,14 +45,15 @@ void World::Apply3D() const
 }
 void World::DrawSkySphere(float radius, float yawOffsetDeg) const
 {
-    if (skyTex == 0) return;
+    if (skyTex == 0)
+        return;
 
     // sky لا لازم يأثر على باقي الرسم
     glDisable(GL_LIGHTING);
     glDisable(GL_FOG);
 
-    glDepthMask(GL_FALSE);          // ما تكتب على depth
-    glDisable(GL_CULL_FACE);        // لأننا جوّا الكرة
+    glDepthMask(GL_FALSE);   // ما تكتب على depth
+    glDisable(GL_CULL_FACE); // لأننا جوّا الكرة
 
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, skyTex);
@@ -109,11 +110,9 @@ void World::DrawSkySphere(float radius, float yawOffsetDeg) const
     // رجّع الـ states
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glDisable(GL_TEXTURE_2D);
-    //glEnable(GL_CULL_FACE);
+    // glEnable(GL_CULL_FACE);
     glDepthMask(GL_TRUE);
 }
-
-
 
 void World::DrawGround(float half, float y) const
 {
@@ -139,16 +138,18 @@ void World::DrawGround(float half, float y) const
 
     float tiling = 10.0f;
     glBegin(GL_QUADS);
-    glTexCoord2f(0, 0);        glVertex3f(-half, y, -half);
-    glTexCoord2f(tiling, 0);   glVertex3f(half, y, -half);
-    glTexCoord2f(tiling, tiling); glVertex3f(half, y, half);
-    glTexCoord2f(0, tiling);   glVertex3f(-half, y, half);
+    glTexCoord2f(0, 0);
+    glVertex3f(-half, y, -half);
+    glTexCoord2f(tiling, 0);
+    glVertex3f(half, y, -half);
+    glTexCoord2f(tiling, tiling);
+    glVertex3f(half, y, half);
+    glTexCoord2f(0, tiling);
+    glVertex3f(-half, y, half);
     glEnd();
 
     glDisable(GL_TEXTURE_2D);
 }
-
-
 
 void World::DrawGrid(float half, float step, float y) const
 {
@@ -173,13 +174,14 @@ void World::Render() const
     Cube cube(Point(0, 0, 0), 4, 4, 4);
     cube.drawWithTexture(cubeTex, 1, 1);
 
+    if (b)
+        b->draw(); // ✅ safe
     // بعدين الأرض + grid
     DrawGround(1000.0f, 0.0f);
 
     DrawSkySphere(1000.0f, 0.0f);
-    if (b) b->draw(); // ✅ safe
-    //DrawGrid(100.0f, 1.0f, 0.01f);
-    // ✅ السماء أولاً
-
+    if (b)
+        b->draw(); // ✅ safe
+    // DrawGrid(100.0f, 1.0f, 0.01f);
+    //  ✅ السماء أولاً
 }
-

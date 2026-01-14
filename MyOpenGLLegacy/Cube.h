@@ -1,4 +1,3 @@
-﻿#pragma once
 #pragma once
 #include "Point.h"
 #include <GL/glut.h>

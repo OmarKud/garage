@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+.vs/
+Debug/
+Release/
+x64/
+*.user
+*.suo
+=======
+=======
+>>>>>>> 7c21ceb087269604ea5f816a09329b1142c445bb
 # Visual Studio
 .vs/
 Debug/
@@ -5,3 +16,7 @@ Release/
 MyOpenGLLegacy/Debug/
 x64/
 x86/
+<<<<<<< HEAD
+>>>>>>> a7aff92d5579800762aca199f307b2b5d9402528
+=======
+>>>>>>> 7c21ceb087269604ea5f816a09329b1142c445bb

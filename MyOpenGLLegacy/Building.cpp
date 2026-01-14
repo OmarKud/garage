@@ -1,43 +1,48 @@
 ﻿#include "Building.h"
 #include <GL/gl.h>
-
-// لازم تكون موجودة
+#include "Cube.h"
+#include <Cylinder.h>
 
 void Building::Init()
 {
     roofTexture = LoadTexture2D("assets/textures/dirt.jpg");
     floorTexture = LoadTexture2D("assets/textures/siramik.jpg");
     wallTexture = LoadTexture2D("assets/textures/gray2.jpg");
-
-    // OPTIONAL: لو تبي FrontWall يستخدم نفس wallTexture بدل ما يحمل وحده
-    // frontWall.SetTexture(wallTexture);
+    luxuryRoom.Init();
 }
 
 Building::Building(Point center, double height, double length, double width)
     : center(center), height(height), length(length), width(width),
 
-    leftWall(Point(center.x - (width / 2) + 2.5, center.y - (height / 2), center.z), height, length, 5),
-    rightWall(Point(center.x + (width / 2) - 2.5, center.y - (height / 2), center.z), height, length, 5),
-    behindWall(Point(center.x, center.y - (height / 2), center.z - (length / 2) + 2.4), height, 5, width - 1),
+      leftWall(Point(center.x - (width / 2) + 2.5, center.y - (height / 2), center.z), height, length, 5),
 
-    roof(Point(center.x, center.y + (height / 2), center.z), 5, length, width),
-    floor(Point(center.x, center.y - (height / 2), center.z), 0.1, length, width),
+      rightWall(Point(center.x + (width / 2) - 2.5, center.y - (height / 2), center.z), height, length, 5),
+      behindWall(Point(center.x, center.y - (height / 2), center.z - (length / 2) + 2.4), height, 5, width - 1),
 
-    innerWall1(Point(center.x - (width / 3) - width * 0.02, center.y - height / 2, center.z),
-        height, 4, width * 0.28),
+      roof(Point(center.x, center.y + (height / 2), center.z), 5, length, width),
+      floor(Point(center.x, center.y - (height / 2), center.z), 0.1, length, width),
 
-    innerWall2(Point(center.x + (width / 3) + width * 0.02, center.y - height / 2, center.z),
-        height, 4, width * 0.28),
+      innerWall1(Point(center.x - (width / 3) - width * 0.02, center.y - height / 2, center.z),
+                 height, 4, width * 0.28),
 
-    // ✅ Front wall at +Z face — and IMPORTANT: pass building length & width (not 4 / width*0.28)
-    frontWall(
-        Point(center.x, center.y , center.z + (length / 2) - 2.4), // base reference
-        height,
-        5,  // ✅ building length
-        width-0.1    // ✅ building width
-    )
+      innerWall2(Point(center.x + (width / 3) + width * 0.02, center.y - height / 2, center.z),
+                 height, 4, width * 0.28),
+      luxuryRoom(
+          Point(
+              center.x - width / 2 + (width / 4) - 50,
+              center.y - (height / 2),
+              center.z - 85),
+          height - 1,
+          length * 0.47,
+          width * 0.275),
+
+      frontWall(
+          Point(center.x, center.y, center.z + (length / 2) - 2.4),
+          height,
+          5,
+          width - 0.1)
 {
-    Init(); // ✅ so textures are loaded
+    Init();
 }
 
 void Building::draw()
@@ -49,7 +54,6 @@ void Building::draw()
     floor.drawWithTexture(floorTexture, 50, 10);
     innerWall1.drawWithTexture(wallTexture, 1, 1);
     innerWall2.drawWithTexture(wallTexture, 1, 1);
-
-    frontWall.draw(); // ✅ draw it
-
+    luxuryRoom.draw();
+    frontWall.draw();
 }

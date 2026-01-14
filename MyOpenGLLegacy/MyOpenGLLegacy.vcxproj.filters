@@ -88,8 +88,13 @@
     <ClCompile Include="Pyramid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="LuxuryRoom.cpp">
+      <Filter>Source Files\Rooms</Filter>
+=======
     <ClCompile Include="FrontWall.cpp">
       <Filter>Source Files\FrontWall</Filter>
+>>>>>>> 7c21ceb087269604ea5f816a09329b1142c445bb
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -153,17 +158,33 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="Pyramid.h" />
     <ClInclude Include="stb_image.h" />
+<<<<<<< HEAD
+    <ClInclude Include="LuxuryRoom.h">
+      <Filter>Source Files\Rooms</Filter>
+    </ClInclude>
+=======
     <ClInclude Include="FrontWall.h" />
+>>>>>>> 7c21ceb087269604ea5f816a09329b1142c445bb
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Downloads\textures\stone.jpg">
       <Filter>Source Files\assets\textures</Filter>
     </Image>
     <Image Include="assets\textures\stone.jpg" />
+<<<<<<< HEAD
+    <Image Include="assets\textures\wood.jpg">
+      <Filter>Source Files\assets\textures</Filter>
+    </Image>
+    <Image Include="assets\textures\wall.jpg">
+      <Filter>Source Files\assets\textures</Filter>
+    </Image>
+    <Image Include="assets\textures\roof.jpg">
+=======
     <Image Include="assets\textures\main_floor2.jpg">
       <Filter>Source Files\assets\textures</Filter>
     </Image>
     <Image Include="assets\textures\main_floor1.jpg">
+>>>>>>> 7c21ceb087269604ea5f816a09329b1142c445bb
       <Filter>Source Files\assets\textures</Filter>
     </Image>
   </ItemGroup>
