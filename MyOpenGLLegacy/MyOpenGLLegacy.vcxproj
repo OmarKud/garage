@@ -93,6 +93,7 @@
     <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="DriverCamera.cpp" />
     <ClCompile Include="FPSCamera.cpp" />
+    <ClCompile Include="FrontWall.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="LuxuryRoom.cpp" />
     <ClCompile Include="MainCar.cpp" />
@@ -114,6 +115,7 @@
     <ClInclude Include="DriverCamera.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FPSCamera.h" />
+    <ClInclude Include="FrontWall.h" />
     <ClInclude Include="GLWin.h" />
     <ClInclude Include="LuxuryRoom.h" />
     <ClInclude Include="Material.h" />
@@ -132,7 +134,12 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Downloads\textures\stone.jpg" />
+<<<<<<< HEAD
     <Image Include="assets\textures\roof.jpg" />
+=======
+    <Image Include="assets\textures\main_floor1.jpg" />
+    <Image Include="assets\textures\main_floor2.jpg" />
+>>>>>>> 7c21ceb087269604ea5f816a09329b1142c445bb
     <Image Include="assets\textures\stone.jpg" />
     <Image Include="assets\textures\wall.jpg" />
     <Image Include="assets\textures\wood.jpg" />

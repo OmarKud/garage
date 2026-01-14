@@ -4,7 +4,7 @@
 #include <Cube.h>
 #include "AABB.h"
 #include <LuxuryRoom.h>
-
+#include "FrontWall.h"
 
 
 class Building {
@@ -27,4 +27,23 @@ class Building {
 	private:
 		
 
+};
+
+
+class Building {
+public:
+    Building(Point center, double height, double length, double width);
+    void Init();
+    void draw();
+
+private:
+    Point center;
+    double height, length, width;
+
+    Cube leftWall, rightWall, behindWall, roof, floor, innerWall1, innerWall2;
+    FrontWall frontWall;
+
+    GLuint floorTexture = 0;
+    GLuint wallTexture = 0;
+    GLuint roofTexture = 0;
 };

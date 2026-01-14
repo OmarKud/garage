@@ -1,6 +1,5 @@
-#include "Cube.h"
+﻿#include "Cube.h"
 #include <GL/gl.h>  
-#include <AABB.h>
 Cube::Cube(Point center, double height, double length, double width)
 {
     this->center = center;
