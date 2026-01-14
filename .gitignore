@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 .vs/
 Debug/
 Release/
 x64/
 *.user
 *.suo
+=======
+# Visual Studio
+.vs/
+Debug/
+Release/
+MyOpenGLLegacy/Debug/
+x64/
+x86/
+>>>>>>> a7aff92d5579800762aca199f307b2b5d9402528

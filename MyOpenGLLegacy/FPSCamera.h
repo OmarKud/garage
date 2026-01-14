@@ -12,10 +12,15 @@ public:
     float yawDeg = -90.0f;
     float pitchDeg = 0.0f;
 
-    float moveSpeed = 6.0f;
+    float moveSpeed = 50.0f;
     float mouseSens = 0.12f;
 
+    // ✅ toggle with F
+    bool flyMode = false;
+    float walkEyeY = 1.8f;
+
 private:
-    Vec3 Forward() const;
-    Vec3 Right(const Vec3& f) const;
+    Vec3 Forward() const;        // yaw + pitch
+    Vec3 ForwardFlat() const;    // yaw only (XZ)
+    Vec3 RightFlat(const Vec3& fFlat) const;
 };

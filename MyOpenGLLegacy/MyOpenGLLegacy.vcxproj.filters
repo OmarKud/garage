@@ -70,6 +70,24 @@
     <ClCompile Include="World.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Building.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pyramid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LuxuryRoom.cpp">
+      <Filter>Source Files\Rooms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">
@@ -126,8 +144,14 @@
     <ClInclude Include="GLWin.h">
       <Filter>Source Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\stb_image.h">
-      <Filter>Source Files\Physics</Filter>
+    <ClInclude Include="Building.h" />
+    <ClInclude Include="Cube.h" />
+    <ClInclude Include="Cylinder.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Pyramid.h" />
+    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="LuxuryRoom.h">
+      <Filter>Source Files\Rooms</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -135,5 +159,14 @@
       <Filter>Source Files\assets\textures</Filter>
     </Image>
     <Image Include="assets\textures\stone.jpg" />
+    <Image Include="assets\textures\wood.jpg">
+      <Filter>Source Files\assets\textures</Filter>
+    </Image>
+    <Image Include="assets\textures\wall.jpg">
+      <Filter>Source Files\assets\textures</Filter>
+    </Image>
+    <Image Include="assets\textures\roof.jpg">
+      <Filter>Source Files\assets\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>
