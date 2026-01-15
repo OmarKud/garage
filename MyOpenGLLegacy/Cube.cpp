@@ -97,6 +97,28 @@ void Cube::drawWithTexture(GLuint textureID, int repeatX, int repeatY) {
     // Disable texturing
     glDisable(GL_TEXTURE_2D);
 }
+
+void Cube::drawGlassCube(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)
+{
+    glPushAttrib(GL_ENABLE_BIT | GL_LIGHTING_BIT | GL_CURRENT_BIT | GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    glDepthMask(GL_FALSE);
+
+    glColor4f(red, green, blue, alpha);
+
+    GLfloat spec[] = { 0.9f, 0.9f, 1.0f, 1.0f };
+    GLfloat shine[] = { 90.0f };
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, spec);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shine);
+
+    draw();
+
+    glPopAttrib(); 
+
+}
 void Cube::drawWithTextureNoTopBottom(GLuint textureID, int repeatX, int repeatY)
 {
     glEnable(GL_TEXTURE_2D);
@@ -152,6 +174,23 @@ void Cube::drawWithTextureNoTopBottom(GLuint textureID, int repeatX, int repeatY
 
     glDisable(GL_TEXTURE_2D);
 }
+
+void Cube::drawTranslated(float dx, float dy, float dz,GLfloat red =1.0f, GLfloat green = 1.0f, GLfloat blue = 1.0f, GLfloat alpha = 1.0f) const
+{
+    glPushMatrix();
+    glTranslatef(dx, dy, dz);   
+    const_cast<Cube*>(this)->drawGlassCube(red,green,blue,alpha);
+    glPopMatrix();              
+}
+
+void Cube::drawWithTextureTranslated(GLuint tex, int rx, int ry, float dx, float dy, float dz) const
+{
+    glPushMatrix();
+    glTranslatef(dx, dy, dz);
+    const_cast<Cube*>(this)->drawWithTexture(tex, rx, ry);
+    glPopMatrix();
+}
+
 
 
 

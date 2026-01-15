@@ -1,5 +1,6 @@
 ﻿#include "FrontWall.h"
 #include <GL/gl.h>
+#include "Cube.h"
 
 // لازم يكون عندك الدالة معرفة في مكان ما
 
@@ -8,10 +9,35 @@ void FrontWall::Init()
         texture = LoadTexture2D("assets/textures/gray2.jpg"); 
 }
 
-// FrontWall.cpp
-#include "FrontWall.h"
-#include <GL/gl.h>
-#include "Cube.h"
+static float clamp01(float x) { return (x < 0.f) ? 0.f : (x > 1.f ? 1.f : x); }
+
+
+static float easeInOutSine(float t)
+{
+    // 0..1 -> 0..1 بحركة ناعمة (تسارع ثم تباطؤ) :contentReference[oaicite:4]{index=4}
+    const float pi = 3.1415926f;
+    return 0.5f - 0.5f * cosf(pi * clamp01(t));
+}
+
+void FrontWall::SetDoorOpen(bool open)
+{
+    doorTarget = open ? 1.0f : 0.0f;
+}
+
+void FrontWall::ToggleDoor()
+{
+    doorTarget = (doorTarget < 0.5f) ? 1.0f : 0.0f;
+}
+
+void FrontWall::Update(float dt)
+{
+    if (doorDuration <= 0.0001f) { doorT = doorTarget; return; }
+
+    float step = dt / doorDuration;
+
+    if (doorT < doorTarget) doorT = clamp01(doorT + step);
+    else if (doorT > doorTarget) doorT = clamp01(doorT - step);
+}
 
 FrontWall::FrontWall(Point center, double height, double length, double width)
     : center(center),
@@ -120,9 +146,48 @@ FrontWall::FrontWall(Point center, double height, double length, double width)
           height - (height * 0.25),
           5,
           width * 0.05
-      )
+      ),
+          leftGlass(Point(
+              center.x - width * 0.325,
+              center.y - height * 0.5,
+              center.z),
+              height * 0.75,
+              5,
+              (width * 0.25)),
+          rightGlass(Point(
+              center.x + width * 0.325,
+              center.y - height * 0.5,
+              center.z),
+              height * 0.75,
+              5,
+              (width * 0.25)),
+
+          leftEntryGlassDoor( 
+          Point(
+          center.x - width*0.025,
+          center.y - (height * 0.5),
+          center.z
+          ),
+          height * 0.5,
+          2.5,
+          width * 0.05
+          ),
+          rightEntryGlassDoor(
+          Point(
+          center.x + width * 0.025,
+          center.y - (height * 0.5),
+          center.z
+          ),
+          height * 0.5,
+          2.5,
+          width * 0.05
+          )
 {
-    // length might be unused now (that's fine)
+    float doorW = (float)(width * 0.28); // عرض فتحة الباب
+    float panelW = (float)(width * 0.05); // عرض لوح الزجاج نفسه
+
+    doorMaxSlide = (doorW * 0.5f) - panelW*1.9f;
+    if (doorMaxSlide < 0.0f) doorMaxSlide = 0.0f; 
 }
 
 
@@ -139,48 +204,33 @@ void FrontWall::draw()
     wall8.drawWithTexture(texture, 1, 1);
 
     //left
-    drawGlassCube(Point(
-        center.x - width * 0.325,
-        center.y - height*0.5,
-        center.z),
-        height * 0.75,
-        5,
-        (width * 0.25));
+    leftGlass.drawGlassCube(0.6f, 0.8f, 1.0f, 0.35f);
     //right
-    drawGlassCube(Point(
-        center.x + width * 0.325,
-        center.y - height * 0.5,
-        center.z),
-        height * 0.75,
-        5,
-        (width * 0.25));
+    rightGlass.drawGlassCube(0.6f, 0.8f, 1.0f, 0.35f);
+
+    /*leftEntryGlassDoor.drawGlassCube(0.6f, 0.8f, 1.0f, 0.35f);
+    rightEntryGlassDoor.drawGlassCube(0.6f, 0.8f, 1.0f, 0.35f);*/
+
+    GLfloat red = 0.6f,
+        green = 0.8f,
+        blue = 1.0f,
+        alpha = 0.35f;
+    float t = easeInOutSine(doorT);
+    float dx = doorMaxSlide * t;
+
+    // اليسار ينزلق يسار، اليمين ينزلق يمين
+    glDisable(GL_CULL_FACE); // للزجاج غالباً أفضل يشوف من الطرفين
+
+    leftEntryGlassDoor.drawTranslated(-dx, 0.0f, 0.0f,red,green,blue,alpha);
+    rightEntryGlassDoor.drawTranslated(+dx, 0.0f, 0.0f, red, green, blue, alpha);
+
+
 }
 
-void FrontWall::drawGlassCube(Point center, float height, float length, float width)
-{
-    // اعزل كل التغييرات داخل الدالة
-    glPushAttrib(GL_ENABLE_BIT | GL_LIGHTING_BIT | GL_CURRENT_BIT | GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    // للشفافية: ما نكتب على depth
-    glDepthMask(GL_FALSE);
 
-    // لون البلور (أزرق خفيف)
-    glColor4f(0.6f, 0.8f, 1.0f, 0.35f);
 
-    // لمعان (Specular) — بس ما نفعّل/نطفّي الإضاءة هون
-    GLfloat spec[]  = { 0.9f, 0.9f, 1.0f, 1.0f };
-    GLfloat shine[] = { 90.0f };
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, spec);
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shine);
-
-    Cube glassCube(center, height, length, width);
-    glassCube.draw();
-
-    glPopAttrib(); // يرجّع كل شيء كما كان
-}
 
 
 

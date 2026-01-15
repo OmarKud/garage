@@ -29,6 +29,33 @@ void World::Resize(int w, int h)
 void World::Update(float dt, const Input &input)
 {
     cam.Update(dt, input);
+
+    if (b)
+    {
+        Point p = b->DoorTriggerPoint();
+
+        // كاميرا (إذا cam.pos عندك public)
+        float cx = cam.pos.x;
+        float cz = cam.pos.z;
+
+        float dx = cx - (float)p.x;
+        float dz = cz - (float)p.z;
+        float dist2 = dx * dx + dz * dz;
+
+        //open dist
+        const float openDist = 35.0f; 
+        //close dist
+        const float closeDist = 35.0f; 
+
+        const float open2 = openDist * openDist;
+        const float close2 = closeDist * closeDist;
+
+        if (dist2 < open2)       b->SetDoorOpen(true);
+        else if (dist2 > close2) b->SetDoorOpen(false);
+
+        b->Update(dt); // لازم تتنادَى كل فريم
+    }
+
 }
 
 void World::Apply3D() const
