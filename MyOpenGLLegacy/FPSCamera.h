@@ -17,7 +17,7 @@ public:
 
     // ✅ toggle with F
     bool flyMode = false;
-    float walkEyeY = 1.8f;
+    float walkEyeY = 10.0f;
 
 private:
     Vec3 Forward() const;        // yaw + pitch
