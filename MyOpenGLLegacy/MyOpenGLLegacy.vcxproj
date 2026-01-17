@@ -92,6 +92,7 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="DriverCamera.cpp" />
+    <ClCompile Include="FamilyRoom.cpp" />
     <ClCompile Include="FPSCamera.cpp" />
     <ClCompile Include="FrontWall.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -101,6 +102,7 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Pyramid.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="TaxiRoom.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
@@ -114,6 +116,7 @@
     <ClInclude Include="Cylinder.h" />
     <ClInclude Include="DriverCamera.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="FamilyRoom.h" />
     <ClInclude Include="FPSCamera.h" />
     <ClInclude Include="FrontWall.h" />
     <ClInclude Include="GLWin.h" />
@@ -127,6 +130,7 @@
     <ClInclude Include="Math3D.h" />
     <ClInclude Include="OrbitCamera.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="TaxiRoom.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transparency.h" />

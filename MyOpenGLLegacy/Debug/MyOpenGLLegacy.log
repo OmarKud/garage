@@ -1,15 +1,20 @@
 ﻿  Building.cpp
-  MyOpenGLLegacy.vcxproj -> C:\visual_studio_projects\garage\Debug\MyOpenGLLegacy.exe
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\dirt.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\gray2.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_floor1.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_floor2.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_wall.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_wall2.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\roof.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\siramik.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\sky.hdr
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\stone.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\wall.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\wood.jpg
-  12 File(s) copied
+  MyOpenGLLegacy.vcxproj -> C:\OpenGL\garage\Debug\MyOpenGLLegacy.exe
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\beige_wall.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\dirt.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\gray2.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\main_floor1.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\main_floor2.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\main_wall.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\main_wall2.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\patterned.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\polystyrene.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\roof.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\siramik.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\sky.hdr
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\stone.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\Taxi.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\wall.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\wood.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\wood_floor.jpg
+  17 File(s) copied

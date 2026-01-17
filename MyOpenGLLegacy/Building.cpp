@@ -9,7 +9,8 @@ void Building::Init()
     floorTexture = LoadTexture2D("assets/textures/siramik.jpg");
     wallTexture = LoadTexture2D("assets/textures/gray2.jpg");
     luxuryRoom.Init();
-
+    familyRoom.Init();
+    taxiRoom.Init();
     upperStageTexture = LoadTexture2D("assets/textures/siramik.jpg");
     lowerStageTexture = LoadTexture2D("assets/textures/gray2.jpg");
 }
@@ -63,6 +64,27 @@ Building::Building(Point center, double height, double length, double width)
           height,
           5,
           width - 0.1)
+    , familyRoom(
+        Point(
+            center.x - width / 2 + (width)-75
+            ,
+            center.y - (height / 2),
+            center.z - 85
+        ),
+        height - 1,
+        length * 0.47,
+        width * 0.275
+    ), taxiRoom(
+        Point(
+            center.x - width / 2 + (width)-75
+            ,
+            center.y - (height / 2),
+            center.z + 87
+        ),
+        height - 1,
+        length * 0.47,
+        width * 0.275
+    )
 {
     Init();
 }
@@ -81,7 +103,8 @@ void Building::draw()
     innerWall2.drawWithTexture(wallTexture, 1, 1);
 
     luxuryRoom.draw();
-
+    taxiRoom.draw();
+    familyRoom.draw();
     carStageUpper.drawWithTexture(upperStageTexture);
     carStageLower.drawWithTexture(lowerStageTexture);
 
