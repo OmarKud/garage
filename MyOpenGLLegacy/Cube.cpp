@@ -1,4 +1,4 @@
-﻿#include "Cube.h"
+#include "Cube.h"
 #include <GL/gl.h>  
 Cube::Cube(Point center, double height, double length, double width)
 {

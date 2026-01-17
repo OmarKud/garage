@@ -1,4 +1,4 @@
-﻿#define WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <windowsx.h>   // GET_X_LPARAM / GET_Y_LPARAM
 
@@ -69,7 +69,7 @@ bool App::Init(HINSTANCE hInst)
 
     b.Init();
     world.Init(w, h,b);
-    // أخفي الماوس (FPS)
+    // ???? ?????? (FPS)
     ShowCursor(FALSE);
     return true;
 }
