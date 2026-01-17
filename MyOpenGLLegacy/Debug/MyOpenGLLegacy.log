@@ -1,5 +1,27 @@
-﻿  Building.cpp
+﻿  App.cpp
+  DriverCamera.cpp
+  World.cpp
+  main.cpp
+  Generating Code...
   MyOpenGLLegacy.vcxproj -> C:\visual_studio_projects\garage\Debug\MyOpenGLLegacy.exe
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\47in_T01.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\47in_T02.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\47in_TV_.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\59_4_.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\59_4_01.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\59_4_02.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\Beige.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\car.3ds
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\e60m5.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\grill.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\Metal_Co.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\ntkuw5kj.bmp
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\nuvi_scr.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\Side.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\White_Ti.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\models\Car.3ds\Wood__Fl.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\blue_metal_plate_diff_1k.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\brown_leather_albedo_1k.jpg
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\dirt.jpg
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\gray2.jpg
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_floor1.jpg
@@ -7,9 +29,10 @@
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_wall.jpg
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_wall2.jpg
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\roof.jpg
+  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\rubber_tiles_diff_1k.jpg
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\siramik.jpg
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\sky.hdr
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\stone.jpg
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\wall.jpg
   C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\wood.jpg
-  12 File(s) copied
+  31 File(s) copied

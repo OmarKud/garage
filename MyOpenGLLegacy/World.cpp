@@ -82,7 +82,6 @@ void World::Apply3D() const
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    cam.ApplyView();
 
     if (isDriverCamera && driverCam) {
         driverCam->ApplyView();

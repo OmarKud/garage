@@ -85,7 +85,6 @@ void FPSCamera::Update(float dt, const Input& input)
     if (!flyMode)
         pos.y = walkEyeY;
 }
-
 void FPSCamera::ApplyView() const
 {
     Vec3 f = Forward();
