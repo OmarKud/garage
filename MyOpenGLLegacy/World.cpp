@@ -1,4 +1,4 @@
-#define WIN32_LEAN_AND_MEAN
+﻿#define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
@@ -16,6 +16,10 @@ void World::Init(int w, int h, const Building &building)
     groundTex = LoadTexture2D("assets/textures/dirt.jpg");
     skyTex = LoadHDRToLDRTexture2D("assets/textures/sky.hdr", 0.15f);
     cubeTex = LoadTexture2D("assets/textures/stone.jpg");
+
+    car.Load("assets/models/test/Car Lincoln Town N221222/Car Lincoln Town N221222.3ds");  // لو هيك فعلياً اسم المجلد
+    car.scale = 1.0f;
+    car.pos = { 0, 14, 350 };
 
     b = std::make_unique<Building>(building); // ? store a safe copy
     myCar = std::make_unique<MainCar>();
@@ -221,6 +225,8 @@ void World::Render() const
 
     Cube cube(Point(0, 0, 0), 4, 4, 4);
     cube.drawWithTexture(cubeTex, 1, 1);
+
+    car.Draw();
 
     if (b)
         b->draw(); // ? safe

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <GL/gl.h>
@@ -117,3 +117,4 @@ private:
     int totalVerts = 0;
     int totalFaces = 0;
 };
+
