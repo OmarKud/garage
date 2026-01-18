@@ -98,6 +98,7 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="LuxuryRoom.cpp" />
     <ClCompile Include="MainCar.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="OrbitCamera.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Pyramid.cpp" />
@@ -122,6 +123,7 @@
     <ClInclude Include="GLWin.h" />
     <ClInclude Include="LuxuryRoom.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Pyramid.h" />
     <ClInclude Include="RenderState.h" />
@@ -132,7 +134,6 @@
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="TaxiRoom.h" />
     <ClInclude Include="Texture.h" />
-    <ClInclude Include="Time.h" />
     <ClInclude Include="Transparency.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

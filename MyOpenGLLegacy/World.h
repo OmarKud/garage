@@ -1,10 +1,14 @@
-﻿#pragma once
+#pragma once
+#include <Windows.h> // ??? ?? ???? ????? ??????
 #include <GL/gl.h>
 #include <memory>
 
 #include "FPSCamera.h"
 #include "Input.h"
 #include "Building.h"
+#include "MainCar.h"       // <--- ??? ???
+#include "DriverCamera.h"
+#include <Model.h>
 
 class World
 {
@@ -13,12 +17,13 @@ public:
     void Resize(int w, int h);
     void Update(float dt, const Input& input);
     void Render() const;
-
+    void ToggleCameraMode() { isDriverCamera = !isDriverCamera; }
 private:
     FPSCamera cam;
-
-    std::unique_ptr<Building> b;  // ✅ no default constructor needed
-
+    std::unique_ptr<MainCar> myCar;
+    std::unique_ptr<DriverCamera> driverCam;
+    std::unique_ptr<Building> b;  // ? no default constructor needed
+    bool isDriverCamera = false;
     void Apply3D() const;
     void DrawGround(float half, float y) const;
     void DrawGrid(float half, float step, float y) const;
@@ -26,6 +31,8 @@ private:
 
     int width = 1280;
     int height = 720;
+    
+    Model car;
 
     GLuint groundTex = 0;
     GLuint skyTex = 0;

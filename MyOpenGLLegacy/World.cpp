@@ -17,7 +17,18 @@ void World::Init(int w, int h, const Building &building)
     skyTex = LoadHDRToLDRTexture2D("assets/textures/sky.hdr", 0.15f);
     cubeTex = LoadTexture2D("assets/textures/stone.jpg");
 
-    b = std::make_unique<Building>(building); // ✅ store a safe copy
+    car.Load("assets/models/test/Car Lincoln Town N221222/Car Lincoln Town N221222.3ds");  // لو هيك فعلياً اسم المجلد
+    car.scale = 1.0f;
+    car.pos = { 0, 14, 350 };
+
+    b = std::make_unique<Building>(building); // ? store a safe copy
+    myCar = std::make_unique<MainCar>();
+    myCar->LoadAssets(); 
+
+    myCar->Init(0.0f, -30.0f);
+
+    driverCam = std::make_unique<DriverCamera>(myCar.get());
+    isDriverCamera = false;
 }
 
 void World::Resize(int w, int h)
@@ -29,12 +40,19 @@ void World::Resize(int w, int h)
 void World::Update(float dt, const Input &input)
 {
     cam.Update(dt, input);
+    if (myCar) {
+        myCar->Update(dt, input);
+    }
 
+    if (input.Pressed('c') || input.Pressed('C')) {
+        isDriverCamera = !isDriverCamera;
+        myCar->ToggleDriverCamera();
+    }
     if (b)
     {
         Point p = b->DoorTriggerPoint();
 
-        // كاميرا (إذا cam.pos عندك public)
+        // ?????? (??? cam.pos ???? public)
         float cx = cam.pos.x;
         float cz = cam.pos.z;
 
@@ -53,7 +71,7 @@ void World::Update(float dt, const Input &input)
         if (dist2 < open2)       b->SetDoorOpen(true);
         else if (dist2 > close2) b->SetDoorOpen(false);
 
-        b->Update(dt); // لازم تتنادَى كل فريم
+        b->Update(dt);
     }
 
 }
@@ -68,29 +86,36 @@ void World::Apply3D() const
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    cam.ApplyView();
+
+    if (isDriverCamera && driverCam) {
+        driverCam->ApplyView();
+    }
+    else {
+        cam.ApplyView();
+    }
+
 }
 void World::DrawSkySphere(float radius, float yawOffsetDeg) const
 {
     if (skyTex == 0)
         return;
 
-    // sky لا لازم يأثر على باقي الرسم
+    // sky ?? ???? ???? ??? ???? ?????
     glDisable(GL_LIGHTING);
     glDisable(GL_FOG);
 
-    glDepthMask(GL_FALSE);   // ما تكتب على depth
-    glDisable(GL_CULL_FACE); // لأننا جوّا الكرة
+    glDepthMask(GL_FALSE);   // ?? ???? ??? depth
+    glDisable(GL_CULL_FACE); // ????? ???? ?????
 
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, skyTex);
 
-    // خلي السماء ما تتأثر بـ glColor
+    // ??? ?????? ?? ????? ?? glColor
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
 
     glPushMatrix();
 
-    // نثبت السماء بمكان الكاميرا (تلغي تأثير الترجمة)
+    // ???? ?????? ????? ???????? (???? ????? ???????)
     cam.ApplyView();
     glTranslatef(cam.pos.x, cam.pos.y, cam.pos.z);
 
@@ -134,7 +159,7 @@ void World::DrawSkySphere(float radius, float yawOffsetDeg) const
 
     glPopMatrix();
 
-    // رجّع الـ states
+    // ???? ??? states
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glDisable(GL_TEXTURE_2D);
     // glEnable(GL_CULL_FACE);
@@ -159,7 +184,7 @@ void World::DrawGround(float half, float y) const
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, groundTex);
 
-    // ✅ مهم: الأرض لازم تكون MODULATE وتأكد اللون أبيض
+    // ? ???: ????? ???? ???? MODULATE ????? ????? ????
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glColor3f(1, 1, 1);
 
@@ -201,14 +226,20 @@ void World::Render() const
     Cube cube(Point(0, 0, 0), 4, 4, 4);
     cube.drawWithTexture(cubeTex, 1, 1);
 
+    car.Draw();
+
     if (b)
-        b->draw(); // ✅ safe
-    // بعدين الأرض + grid
+        b->draw(); // ? safe
+    // ????? ????? + grid
+    if (myCar) {
+        myCar->Draw();
+    }
     DrawGround(1000.0f, 0.0f);
 
     DrawSkySphere(1000.0f, 0.0f);
     if (b)
-        b->draw(); // ✅ safe
+        b->draw(); // ? safe
     // DrawGrid(100.0f, 1.0f, 0.01f);
-    //  ✅ السماء أولاً
+    //  ? ?????? ?????
+ 
 }
