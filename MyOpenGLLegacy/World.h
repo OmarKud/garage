@@ -8,6 +8,7 @@
 #include "Building.h"
 #include "MainCar.h"       // <--- ??? ???
 #include "DriverCamera.h"
+#include <Model.h>
 
 class World
 {
@@ -30,6 +31,8 @@ private:
 
     int width = 1280;
     int height = 720;
+    
+    Model car;
 
     GLuint groundTex = 0;
     GLuint skyTex = 0;
