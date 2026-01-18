@@ -3,25 +3,31 @@
 #include "Point.h"
 #include "Cube.h"
 
+struct CollisionWorld; // ✅ forward declaration
+
 class FrontWall {
 public:
     FrontWall(Point center, double height, double length, double width);
     void draw();
     void Init();              // load texture
-    void SetTexture(GLuint t) { texture = t; } // optional if you want Building texture
     void Update(float dt);
     void ToggleDoor();                 // فتح/إغلاق
     void SetDoorOpen(bool open);       // تحكم مباشر
     Point GetTriggerPoint() const { return Point(center.x, center.y - height * 0.5, center.z); }
 
+    static void drawGlassCube(Point center, float height, float length, float width);
+    void SetTexture(GLuint t) { texture = t; }
+    void BuildColliderss(CollisionWorld& cw) const;
 
 private:
     Point center;
     double height, length, width;
 
-    Cube wall1, wall2, wall3, wall4, wall5, wall6, wall7, wall8;
+    Cube wall1, wall2, wall3, wall4, wall7, wall8;
     Cube leftGlass, rightGlass;
     Cube leftEntryGlassDoor, rightEntryGlassDoor;
+    Cube winLeft;
+    Cube winRight;
     GLuint texture = 0;
 
     float doorT = 0.0f;        // 0 closed, 1 open

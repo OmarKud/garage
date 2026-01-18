@@ -113,6 +113,8 @@
     <ClInclude Include="Building.h" />
     <ClInclude Include="CameraBase.h" />
     <ClInclude Include="Car.h" />
+    <ClInclude Include="Collision.h" />
+    <ClInclude Include="CollisionUtils.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Cylinder.h" />
     <ClInclude Include="DriverCamera.h" />
@@ -131,8 +133,10 @@
     <ClInclude Include="MainCar.h" />
     <ClInclude Include="Math3D.h" />
     <ClInclude Include="OrbitCamera.h" />
+    <ClInclude Include="SpotLight.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="TaxiRoom.h" />
+    <ClInclude Include="Switch.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Transparency.h" />
     <ClInclude Include="World.h" />

@@ -8,6 +8,7 @@
 #include "Cylinder.h"
 #include <FamilyRoom.h>
 #include <TaxiRoom.h>
+#include "Collision.h"
 
 
 
@@ -22,6 +23,8 @@ public:
     void ToggleDoor();
     void SetDoorOpen(bool open);
     Point DoorTriggerPoint() const;
+    void Update(const Input& input) { luxuryRoom.Update(input); }
+    void BuildColliders(CollisionWorld& cw) const;
 
 private:
     Point center;

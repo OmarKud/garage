@@ -38,63 +38,64 @@ void Cube::draw()
     glEnd();
 }
 
-void Cube::drawWithTexture(GLuint textureID, int repeatX, int repeatY) {
-    // Enable texturing
+void Cube::drawWithTexture(GLuint textureID, int repeatX, int repeatY)
+{
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, textureID);
 
-    // Draw front and back faces (GL_QUADS)
-    // Front face
+    double x0 = center.x - width * 0.5;
+    double x1 = center.x + width * 0.5;
+    double y0 = center.y;
+    double y1 = center.y + height;
+    double z0 = center.z - length * 0.5;
+    double z1 = center.z + length * 0.5;
+
     glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f); glVertex3d(center.x - width / 2, center.y, center.z + length / 2);
-    glTexCoord2f(repeatX, 0.0f); glVertex3d(center.x + width / 2, center.y, center.z + length / 2);
-    glTexCoord2f(repeatX, repeatY); glVertex3d(center.x + width / 2, center.y + height, center.z + length / 2);
-    glTexCoord2f(0.0f, repeatY); glVertex3d(center.x - width / 2, center.y + height, center.z + length / 2);
+
+    // Front (+Z)
+    glNormal3f(0.f, 0.f, 1.f);
+    glTexCoord2f(0.f, 0.f);         glVertex3d(x0, y0, z1);
+    glTexCoord2f((float)repeatX, 0.f); glVertex3d(x1, y0, z1);
+    glTexCoord2f((float)repeatX, (float)repeatY); glVertex3d(x1, y1, z1);
+    glTexCoord2f(0.f, (float)repeatY); glVertex3d(x0, y1, z1);
+
+    // Back (-Z)
+    glNormal3f(0.f, 0.f, -1.f);
+    glTexCoord2f(0.f, 0.f);         glVertex3d(x1, y0, z0);
+    glTexCoord2f((float)repeatX, 0.f); glVertex3d(x0, y0, z0);
+    glTexCoord2f((float)repeatX, (float)repeatY); glVertex3d(x0, y1, z0);
+    glTexCoord2f(0.f, (float)repeatY); glVertex3d(x1, y1, z0);
+
+    // Left (-X)
+    glNormal3f(-1.f, 0.f, 0.f);
+    glTexCoord2f(0.f, 0.f);         glVertex3d(x0, y0, z0);
+    glTexCoord2f((float)repeatX, 0.f); glVertex3d(x0, y0, z1);
+    glTexCoord2f((float)repeatX, (float)repeatY); glVertex3d(x0, y1, z1);
+    glTexCoord2f(0.f, (float)repeatY); glVertex3d(x0, y1, z0);
+
+    // Right (+X)
+    glNormal3f(1.f, 0.f, 0.f);
+    glTexCoord2f(0.f, 0.f);         glVertex3d(x1, y0, z1);
+    glTexCoord2f((float)repeatX, 0.f); glVertex3d(x1, y0, z0);
+    glTexCoord2f((float)repeatX, (float)repeatY); glVertex3d(x1, y1, z0);
+    glTexCoord2f(0.f, (float)repeatY); glVertex3d(x1, y1, z1);
+
+    // Bottom (-Y)
+    glNormal3f(0.f, -1.f, 0.f);
+    glTexCoord2f(0.f, 0.f);         glVertex3d(x0, y0, z1);
+    glTexCoord2f((float)repeatX, 0.f); glVertex3d(x1, y0, z1);
+    glTexCoord2f((float)repeatX, (float)repeatY); glVertex3d(x1, y0, z0);
+    glTexCoord2f(0.f, (float)repeatY); glVertex3d(x0, y0, z0);
+
+    // Top (+Y)
+    glNormal3f(0.f, 1.f, 0.f);
+    glTexCoord2f(0.f, 0.f);         glVertex3d(x0, y1, z0);
+    glTexCoord2f((float)repeatX, 0.f); glVertex3d(x1, y1, z0);
+    glTexCoord2f((float)repeatX, (float)repeatY); glVertex3d(x1, y1, z1);
+    glTexCoord2f(0.f, (float)repeatY); glVertex3d(x0, y1, z1);
+
     glEnd();
 
-    // Back face
-    glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f); glVertex3d(center.x - width / 2, center.y, center.z - length / 2);
-    glTexCoord2f(repeatX, 0.0f); glVertex3d(center.x + width / 2, center.y, center.z - length / 2);
-    glTexCoord2f(repeatX, repeatY); glVertex3d(center.x + width / 2, center.y + height, center.z - length / 2);
-    glTexCoord2f(0.0f, repeatY); glVertex3d(center.x - width / 2, center.y + height, center.z - length / 2);
-    glEnd();
-
-    // Draw left and right faces
-    // Left face
-    glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f); glVertex3d(center.x - width / 2, center.y, center.z - length / 2);
-    glTexCoord2f(repeatX, 0.0f); glVertex3d(center.x - width / 2, center.y, center.z + length / 2);
-    glTexCoord2f(repeatX, repeatY); glVertex3d(center.x - width / 2, center.y + height, center.z + length / 2);
-    glTexCoord2f(0.0f, repeatY); glVertex3d(center.x - width / 2, center.y + height, center.z - length / 2);
-    glEnd();
-
-    // Right face
-    glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f); glVertex3d(center.x + width / 2, center.y, center.z - length / 2);
-    glTexCoord2f(repeatX, 0.0f); glVertex3d(center.x + width / 2, center.y, center.z + length / 2);
-    glTexCoord2f(repeatX, repeatY); glVertex3d(center.x + width / 2, center.y + height, center.z + length / 2);
-    glTexCoord2f(0.0f, repeatY); glVertex3d(center.x + width / 2, center.y + height, center.z - length / 2);
-    glEnd();
-
-    // Draw top and bottom faces
-    // Bottom face
-    glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f); glVertex3d(center.x - width / 2, center.y, center.z + length / 2);
-    glTexCoord2f(repeatX, 0.0f); glVertex3d(center.x + width / 2, center.y, center.z + length / 2);
-    glTexCoord2f(repeatX, repeatY); glVertex3d(center.x + width / 2, center.y, center.z - length / 2);
-    glTexCoord2f(0.0f, repeatY); glVertex3d(center.x - width / 2, center.y, center.z - length / 2);
-    glEnd();
-
-    // Top face
-    glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f); glVertex3d(center.x - width / 2, center.y + height, center.z + length / 2);
-    glTexCoord2f(repeatX, 0.0f); glVertex3d(center.x + width / 2, center.y + height, center.z + length / 2);
-    glTexCoord2f(repeatX, repeatY); glVertex3d(center.x + width / 2, center.y + height, center.z - length / 2);
-    glTexCoord2f(0.0f, repeatY); glVertex3d(center.x - width / 2, center.y + height, center.z - length / 2);
-    glEnd();
-
-    // Disable texturing
     glDisable(GL_TEXTURE_2D);
 }
 
