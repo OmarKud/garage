@@ -6,6 +6,8 @@
 #include <LuxuryRoom.h>
 #include "FrontWall.h"
 #include "Cylinder.h"
+#include <FamilyRoom.h>
+#include <TaxiRoom.h>
 
 
 
@@ -29,7 +31,8 @@ private:
     FrontWall frontWall;
 	LuxuryRoom luxuryRoom;
     Cylinder carStageUpper , carStageLower;
-
+    FamilyRoom familyRoom;
+    TaxiRoom   taxiRoom;
     GLuint floorTexture = 0;
     GLuint wallTexture = 0;
     GLuint roofTexture = 0;
