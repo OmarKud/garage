@@ -17,7 +17,14 @@ void World::Init(int w, int h, const Building &building)
     skyTex = LoadHDRToLDRTexture2D("assets/textures/sky.hdr", 0.15f);
     cubeTex = LoadTexture2D("assets/textures/stone.jpg");
 
-    b = std::make_unique<Building>(building); // ✅ store a safe copy
+    b = std::make_unique<Building>(building);
+    collisions.Clear();
+    if (b) b->BuildColliders(collisions);
+#include <string>
+
+    OutputDebugStringA(("Colliders count = " + std::to_string(collisions.boxes.size()) + "\n").c_str());
+
+
 }
 
 void World::Resize(int w, int h)
@@ -26,10 +33,43 @@ void World::Resize(int w, int h)
     height = (h <= 0) ? 1 : h;
 }
 
-void World::Update(float dt, const Input &input)
+void World::Update(float dt, const Input& input)
 {
+    // 1) خزّن مكان الكاميرا قبل الحركة
+    Vec3 oldPos = cam.pos;
+
+    // 2) حدّث الكاميرا (بيعطيك pos جديد)
     cam.Update(dt, input);
+
+    // 3) احسب الدلتا (قديش تحركت خلال هالفريم)
+    Vec3 delta = cam.pos - oldPos;
+
+    // 4) رجّع الكاميرا للمكان القديم، وبعدين امشِ على خطوات صغيرة
+    cam.pos = oldPos;
+
+    // قيم اللاعب
+    const float playerRadius = 2.5f;
+    const float playerHeight = 1.8f;   // خليه كبير لتتأكد ما يتجاهل الجدران (ارتفاع المبنى عندك كبير)
+
+    // عدد الخطوات: كل ما زادت الدلتا زيد steps حتى ما يصير tunneling
+    float d = length(delta);
+    int steps = (int)std::ceil(d / 2.0f);   // كل 2 وحدات خطوة
+    if (steps < 1) steps = 1;
+    if (steps > 50) steps = 50;            // سقف أمان
+
+    Vec3 step = delta / (float)steps;
+
+    for (int i = 0; i < steps; ++i)
+    {
+        cam.pos = cam.pos + step;
+        const float eyeY = cam.walkEyeY;   // 1.8
+        collisions.ResolvePlayerCamera(cam.pos, playerRadius, eyeY, playerHeight);
+    }
+
+    if (b) b->Update(input);
 }
+
+
 
 void World::Apply3D() const
 {
@@ -112,6 +152,7 @@ void World::DrawSkySphere(float radius, float yawOffsetDeg) const
     glDisable(GL_TEXTURE_2D);
     // glEnable(GL_CULL_FACE);
     glDepthMask(GL_TRUE);
+
 }
 
 void World::DrawGround(float half, float y) const
@@ -171,17 +212,10 @@ void World::Render() const
 {
     Apply3D();
 
-    Cube cube(Point(0, 0, 0), 4, 4, 4);
-    cube.drawWithTexture(cubeTex, 1, 1);
-
-    if (b)
-        b->draw(); // ✅ safe
-    // بعدين الأرض + grid
+    DrawSkySphere(1000.0f, 0.0f);
     DrawGround(1000.0f, 0.0f);
 
-    DrawSkySphere(1000.0f, 0.0f);
     if (b)
-        b->draw(); // ✅ safe
-    // DrawGrid(100.0f, 1.0f, 0.01f);
-    //  ✅ السماء أولاً
+        b->draw();
 }
+

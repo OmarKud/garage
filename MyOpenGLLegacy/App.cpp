@@ -28,6 +28,8 @@ bool App::Init(HINSTANCE hInst)
         WS_OVERLAPPEDWINDOW | WS_VISIBLE,
         100, 100, 1280, 720,
         nullptr, nullptr, hInst, nullptr);
+    SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)this);
+
 
     if (!hwnd) return false;
 
@@ -122,10 +124,15 @@ int App::Run()
     }
 }
 
+
 LRESULT CALLBACK App::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
+    App* app = (App*)GetWindowLongPtr(hWnd, GWLP_USERDATA);
+
     switch (msg)
     {
+   
+
     case WM_DESTROY:
         PostQuitMessage(0);
         return 0;

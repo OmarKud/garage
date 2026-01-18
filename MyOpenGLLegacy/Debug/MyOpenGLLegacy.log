@@ -1,18 +1,15 @@
-﻿  Building.cpp
-  main.cpp
-  World.cpp
-  Generating Code...
-  MyOpenGLLegacy.vcxproj -> C:\visual_studio_projects\garage\Debug\MyOpenGLLegacy.exe
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\dirt.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\gray2.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_floor1.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_floor2.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_wall.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\main_wall2.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\roof.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\siramik.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\sky.hdr
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\stone.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\wall.jpg
-  C:\visual_studio_projects\garage\MyOpenGLLegacy\assets\textures\wood.jpg
+﻿  FrontWall.cpp
+  MyOpenGLLegacy.vcxproj -> C:\Users\HP\source\repos\GL_Cars_Project\Debug\MyOpenGLLegacy.exe
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\dirt.jpg
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\gray2.jpg
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\main_floor1.jpg
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\main_floor2.jpg
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\main_wall.jpg
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\main_wall2.jpg
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\roof.jpg
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\siramik.jpg
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\sky.hdr
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\stone.jpg
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\wall.jpg
+  C:\Users\HP\source\repos\GL_Cars_Project\MyOpenGLLegacy\assets\textures\wood.jpg
   12 File(s) copied

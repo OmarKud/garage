@@ -5,6 +5,8 @@
 #include "FPSCamera.h"
 #include "Input.h"
 #include "Building.h"
+#include "Collision.h"
+
 
 class World
 {
@@ -13,9 +15,9 @@ public:
     void Resize(int w, int h);
     void Update(float dt, const Input& input);
     void Render() const;
+    FPSCamera cam;
 
 private:
-    FPSCamera cam;
 
     std::unique_ptr<Building> b;  // ✅ no default constructor needed
 
@@ -23,6 +25,7 @@ private:
     void DrawGround(float half, float y) const;
     void DrawGrid(float half, float step, float y) const;
     void DrawSkySphere(float radius, float yawOffsetDeg) const;
+    CollisionWorld collisions;
 
     int width = 1280;
     int height = 720;

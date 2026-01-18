@@ -1,191 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{DFCE8E80-B1D5-4A8F-AB7A-2DEA3FDBE414}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Build">
-      <UniqueIdentifier>{FE2E5B39-9E34-46D9-B7D7-BA8E171EBCF3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\src">
-      <UniqueIdentifier>{a631201d-749e-4368-98f8-1349d0189dd7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Core">
-      <UniqueIdentifier>{790fa2b5-bddd-4296-975e-b789d3374d99}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Camera">
-      <UniqueIdentifier>{c5502965-d155-4f03-ab60-22d99f111267}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Entities">
-      <UniqueIdentifier>{01521943-cc41-4e47-acc4-beef28845786}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Rendre">
-      <UniqueIdentifier>{cae44cd0-1142-45b0-bb48-b67bb0d85c2a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\assets">
-      <UniqueIdentifier>{0ae7265e-b73e-4c09-a094-20a5e2709878}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Physics">
-      <UniqueIdentifier>{04bbe7db-bf71-42e5-9d3d-46d9c989a614}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\assets\textures">
-      <UniqueIdentifier>{1cd33441-8da7-49de-93ce-eb9c71ba74e7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Scene">
-      <UniqueIdentifier>{aa6ffe43-6b55-4faf-a7e8-dd0aa837a0cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Rooms">
-      <UniqueIdentifier>{a251ebb7-b88a-4353-a406-49d155df9ccc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\FrontWall">
-      <UniqueIdentifier>{0e16c26a-01c6-4949-8808-b02b1414cf69}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="Building.cpp" />
+    <ClCompile Include="Car.cpp" />
+    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="Cylinder.cpp" />
+    <ClCompile Include="DriverCamera.cpp" />
+    <ClCompile Include="FPSCamera.cpp" />
+    <ClCompile Include="FrontWall.cpp" />
+    <ClCompile Include="Input.cpp" />
+    <ClCompile Include="LuxuryRoom.cpp" />
+    <ClCompile Include="MainCar.cpp" />
+    <ClCompile Include="OrbitCamera.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Pyramid.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>Source Files\src</Filter>
-    </ClCompile>
-    <ClCompile Include="App.cpp">
-      <Filter>Source Files\src</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="FPSCamera.cpp">
-      <Filter>Source Files\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="OrbitCamera.cpp">
-      <Filter>Source Files\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="DriverCamera.cpp">
-      <Filter>Source Files\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Car.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="MainCar.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files\Rendre</Filter>
-    </ClCompile>
-    <ClCompile Include="World.cpp">
-      <Filter>Source Files\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Building.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cube.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cylinder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Point.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Pyramid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="LuxuryRoom.cpp">
-      <Filter>Source Files\Rooms</Filter>
-=======
-    <ClCompile Include="FrontWall.cpp">
-      <Filter>Source Files\FrontWall</Filter>
->>>>>>> 7c21ceb087269604ea5f816a09329b1142c445bb
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Time.h">
-      <Filter>Source Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Math3D.h">
-      <Filter>Source Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Source Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="CameraBase.h">
-      <Filter>Source Files\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="FPSCamera.h">
-      <Filter>Source Files\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="OrbitCamera.h">
-      <Filter>Source Files\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="DriverCamera.h">
-      <Filter>Source Files\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Source Files\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Car.h">
-      <Filter>Source Files\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="MainCar.h">
-      <Filter>Source Files\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderState.h">
-      <Filter>Source Files\Rendre</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Source Files\Rendre</Filter>
-    </ClInclude>
-    <ClInclude Include="Transparency.h">
-      <Filter>Source Files\Rendre</Filter>
-    </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>Source Files\Rendre</Filter>
-    </ClInclude>
-    <ClInclude Include="AABB.h">
-      <Filter>Source Files\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="World.h">
-      <Filter>Source Files\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="App.h">
-      <Filter>Source Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="GLWin.h">
-      <Filter>Source Files\Core</Filter>
-    </ClInclude>
+    <ClInclude Include="AABB.h" />
+    <ClInclude Include="App.h" />
     <ClInclude Include="Building.h" />
+    <ClInclude Include="CameraBase.h" />
+    <ClInclude Include="Car.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Cylinder.h" />
+    <ClInclude Include="DriverCamera.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="FPSCamera.h" />
+    <ClInclude Include="FrontWall.h" />
+    <ClInclude Include="GLWin.h" />
+    <ClInclude Include="LuxuryRoom.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Pyramid.h" />
+    <ClInclude Include="RenderState.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="MainCar.h" />
+    <ClInclude Include="Math3D.h" />
+    <ClInclude Include="OrbitCamera.h" />
+    <ClInclude Include="SpotLight.h" />
     <ClInclude Include="stb_image.h" />
-<<<<<<< HEAD
-    <ClInclude Include="LuxuryRoom.h">
-      <Filter>Source Files\Rooms</Filter>
-    </ClInclude>
-=======
-    <ClInclude Include="FrontWall.h" />
->>>>>>> 7c21ceb087269604ea5f816a09329b1142c445bb
+    <ClInclude Include="Switch.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Time.h" />
+    <ClInclude Include="Transparency.h" />
+    <ClInclude Include="World.h" />
+    <ClInclude Include="Collision.h" />
+    <ClInclude Include="CollisionUtils.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Downloads\textures\stone.jpg">
-      <Filter>Source Files\assets\textures</Filter>
-    </Image>
+    <Image Include="..\..\..\..\Downloads\textures\stone.jpg" />
+    <Image Include="assets\textures\roof.jpg" />
+    <Image Include="assets\textures\main_floor1.jpg" />
+    <Image Include="assets\textures\main_floor2.jpg" />
     <Image Include="assets\textures\stone.jpg" />
-<<<<<<< HEAD
-    <Image Include="assets\textures\wood.jpg">
-      <Filter>Source Files\assets\textures</Filter>
-    </Image>
-    <Image Include="assets\textures\wall.jpg">
-      <Filter>Source Files\assets\textures</Filter>
-    </Image>
-    <Image Include="assets\textures\roof.jpg">
-=======
-    <Image Include="assets\textures\main_floor2.jpg">
-      <Filter>Source Files\assets\textures</Filter>
-    </Image>
-    <Image Include="assets\textures\main_floor1.jpg">
->>>>>>> 7c21ceb087269604ea5f816a09329b1142c445bb
-      <Filter>Source Files\assets\textures</Filter>
-    </Image>
+    <Image Include="assets\textures\wall.jpg" />
+    <Image Include="assets\textures\wood.jpg" />
   </ItemGroup>
 </Project>

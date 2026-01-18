@@ -1,5 +1,10 @@
 ﻿#include "FrontWall.h"
 #include <GL/gl.h>
+#include "CollisionUtils.h"
+#include "Collision.h"
+#include "FrontWall.h"
+#include <GL/gl.h>
+#include "Cube.h"
 
 // لازم يكون عندك الدالة معرفة في مكان ما
 
@@ -9,9 +14,7 @@ void FrontWall::Init()
 }
 
 // FrontWall.cpp
-#include "FrontWall.h"
-#include <GL/gl.h>
-#include "Cube.h"
+
 
 FrontWall::FrontWall(Point center, double height, double length, double width)
     : center(center),
@@ -120,7 +123,16 @@ FrontWall::FrontWall(Point center, double height, double length, double width)
           height - (height * 0.25),
           5,
           width * 0.05
-      )
+      ),
+          winLeft(
+              Point(center.x - width * 0.325, center.y - height * 0.5, center.z),
+              height * 0.75, 5, (width * 0.25)
+          ),
+          winRight(
+              Point(center.x + width * 0.325, center.y - height * 0.5, center.z),
+              height * 0.75, 5, (width * 0.25)
+          )
+
 {
     // length might be unused now (that's fine)
 }
@@ -155,6 +167,28 @@ void FrontWall::draw()
         5,
         (width * 0.25));
 }
+
+void FrontWall::BuildColliders(CollisionWorld& cw) const
+{
+    // كل القطع الصلبة
+    cw.AddAABB(AABBFromCube(wall1));
+    cw.AddAABB(AABBFromCube(wall2));
+    cw.AddAABB(AABBFromCube(wall3));
+    cw.AddAABB(AABBFromCube(wall4));
+    cw.AddAABB(AABBFromCube(wall7));
+    cw.AddAABB(AABBFromCube(wall8));
+
+    // القواعد (إذا بدك تمنع المرور منها)
+    cw.AddAABB(AABBFromCube(wall5));
+    cw.AddAABB(AABBFromCube(wall6));
+
+    // الزجاج: إذا بدك يكون “جدار” (يمنع المرور) ضيفه
+   /* cw.AddAABB(AABBFromCube(winLeft));
+    cw.AddAABB(AABBFromCube(winRight));*/
+
+    // الباب: ما في Cube له ⇒ ما في Collider ⇒ فتحة مرور جاهزة
+}
+
 
 void FrontWall::drawGlassCube(Point center, float height, float length, float width)
 {

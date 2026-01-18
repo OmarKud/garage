@@ -5,6 +5,7 @@
 #include "AABB.h"
 #include <LuxuryRoom.h>
 #include "FrontWall.h"
+#include "Collision.h"
 
 
 
@@ -15,6 +16,8 @@ public:
     Building(Point center, double height, double length, double width);
     void Init();
     void draw();
+    void Update(const Input& input) { luxuryRoom.Update(input); }
+    void BuildColliders(CollisionWorld& cw) const;
 
 private:
     Point center;
