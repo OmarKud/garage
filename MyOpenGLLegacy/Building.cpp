@@ -2,6 +2,7 @@
 #include <GL/gl.h>
 #include "Cube.h"
 #include <Cylinder.h>
+#include <CollisionUtils.h>
 
 void Building::Init()
 {
@@ -87,6 +88,22 @@ Building::Building(Point center, double height, double length, double width)
     )
 {
     Init();
+}
+void Building::BuildColliders(CollisionWorld& cw) const
+{
+    // جدران المبنى الأساسية
+    cw.AddAABB(AABBFromCube(leftWall));
+    cw.AddAABB(AABBFromCube(rightWall));
+    cw.AddAABB(AABBFromCube(behindWall));
+
+    cw.AddAABB(AABBFromCube(innerWall1));
+    cw.AddAABB(AABBFromCube(innerWall2));
+
+    // FrontWall (قطع متعددة مع فراغ باب)
+    frontWall.BuildColliderss(cw);
+
+    // LuxuryRoom إذا بدك كمان
+   // luxuryRoom.BuildColliders(cw);
 }
 
 void Building::draw()

@@ -9,6 +9,8 @@
 #include "MainCar.h"       // <--- ??? ???
 #include "DriverCamera.h"
 #include <Model.h>
+#include "Collision.h"
+
 
 class World
 {
@@ -28,6 +30,7 @@ private:
     void DrawGround(float half, float y) const;
     void DrawGrid(float half, float step, float y) const;
     void DrawSkySphere(float radius, float yawOffsetDeg) const;
+    CollisionWorld collisions;
 
     int width = 1280;
     int height = 720;

@@ -1,5 +1,9 @@
 ﻿#include "FrontWall.h"
 #include <GL/gl.h>
+#include "CollisionUtils.h"
+#include "Collision.h"
+#include "FrontWall.h"
+#include <GL/gl.h>
 #include "Cube.h"
 
 // لازم يكون عندك الدالة معرفة في مكان ما
@@ -38,6 +42,8 @@ void FrontWall::Update(float dt)
     if (doorT < doorTarget) doorT = clamp01(doorT + step);
     else if (doorT > doorTarget) doorT = clamp01(doorT - step);
 }
+// FrontWall.cpp
+
 
 FrontWall::FrontWall(Point center, double height, double length, double width)
     : center(center),
@@ -103,29 +109,6 @@ FrontWall::FrontWall(Point center, double height, double length, double width)
           width * 0.15
       ),
 
-      wall5( // (5) LEFT BOTTOM BASE
-          Point(
-              center.x - width*0.325,
-              center.y - height*0.5 ,
-              center.z
-          ),
-          height * 0.18,
-          5,
-          (width * 0.25)
-      ),
-
-      wall6( // (6) RIGHT BOTTOM BASE
-          Point(
-              center.x + width * 0.325
-              ,
-              center.y - height * 0.5,
-              center.z
-          ),
-          height * 0.18,
-          5,
-          (width * 0.25)
-      ),
-
       wall7( // (7) LEFT OUTER SIDE
           Point(
               center.x - width * 0.475,
@@ -181,7 +164,16 @@ FrontWall::FrontWall(Point center, double height, double length, double width)
           height * 0.5,
           2.5,
           width * 0.05
+          ),
+          winLeft(
+              Point(center.x - width * 0.325, center.y - height * 0.5, center.z),
+              height * 0.75, 5, (width * 0.25)
+          ),
+          winRight(
+              Point(center.x + width * 0.325, center.y - height * 0.5, center.z),
+              height * 0.75, 5, (width * 0.25)
           )
+
 {
     float doorW = (float)(width * 0.28); // عرض فتحة الباب
     float panelW = (float)(width * 0.05); // عرض لوح الزجاج نفسه
@@ -208,9 +200,6 @@ void FrontWall::draw()
     //right
     rightGlass.drawGlassCube(0.6f, 0.8f, 1.0f, 0.35f);
 
-    /*leftEntryGlassDoor.drawGlassCube(0.6f, 0.8f, 1.0f, 0.35f);
-    rightEntryGlassDoor.drawGlassCube(0.6f, 0.8f, 1.0f, 0.35f);*/
-
     GLfloat red = 0.6f,
         green = 0.8f,
         blue = 1.0f,
@@ -221,11 +210,24 @@ void FrontWall::draw()
     // اليسار ينزلق يسار، اليمين ينزلق يمين
     glDisable(GL_CULL_FACE); // للزجاج غالباً أفضل يشوف من الطرفين
 
-    leftEntryGlassDoor.drawTranslated(-dx, 0.0f, 0.0f,red,green,blue,alpha);
+    leftEntryGlassDoor.drawTranslated(-dx, 0.0f, 0.0f, red, green, blue, alpha);
     rightEntryGlassDoor.drawTranslated(+dx, 0.0f, 0.0f, red, green, blue, alpha);
 
-
 }
+void FrontWall::BuildColliderss(CollisionWorld& cw) const
+{
+    // كل القطع الصلبة
+    cw.AddAABB(AABBFromCube(wall1));
+    cw.AddAABB(AABBFromCube(wall2));
+    cw.AddAABB(AABBFromCube(wall3));
+    cw.AddAABB(AABBFromCube(wall4));
+    cw.AddAABB(AABBFromCube(wall7));
+    cw.AddAABB(AABBFromCube(wall8));
+
+
+   
+}
+
 
 
 

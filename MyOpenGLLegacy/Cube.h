@@ -19,5 +19,9 @@ public:
 	double height, length, width;
 	void drawWithTextureNoTopBottom(GLuint textureID, int repeatX, int repeatY);
 	void drawWithTextureOnOneFace(GLuint textureID, const std::string& face, int repeatX, int repeatY);
+	const Point& GetCenter() const { return center; }
+	double GetHeight() const { return height; }
+	double GetLength() const { return length; }
+	double GetWidth()  const { return width; }
 
 };
