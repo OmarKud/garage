@@ -25,6 +25,7 @@ TaxiRoom::TaxiRoom(Point floorCenter, double height, double length, double width
         width
     ),
 
+
     ceilingPiece(
         Point(floorCenter.x, floorCenter.y + height - 0.1, floorCenter.z),
         0.2,
