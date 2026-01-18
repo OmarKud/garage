@@ -18,7 +18,9 @@ private:
     Cube leftWall;
     Cube rightWall;
     Cube backWall;   // 
-
+    // ✅ لوحة التاكسي
+    Cube backSign;
+    GLuint signTex = 0;
     // 
     GLuint wallTex = 0;
     GLuint floorTex = 0;

@@ -1,7 +1,9 @@
-﻿  Building.cpp
+﻿  TaxiRoom.cpp
   MyOpenGLLegacy.vcxproj -> C:\OpenGL\garage\Debug\MyOpenGLLegacy.exe
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\beige_wall.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\clean.jpg
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\dirt.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\download.jpg
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\gray2.jpg
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\main_floor1.jpg
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\main_floor2.jpg
@@ -14,7 +16,9 @@
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\sky.hdr
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\stone.jpg
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\Taxi.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\taxis.jpg
+  C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\taxi_sign.jpg
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\wall.jpg
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\wood.jpg
   C:\OpenGL\garage\MyOpenGLLegacy\assets\textures\wood_floor.jpg
-  17 File(s) copied
+  21 File(s) copied

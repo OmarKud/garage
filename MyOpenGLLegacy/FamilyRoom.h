@@ -23,7 +23,7 @@ private:
     Cube rightWall;
     Cube backWall;   // 
 
-    // 
+    //
     GLuint wallTex = 0;
     GLuint floorTex = 0;
     GLuint ceilingTex = 0;

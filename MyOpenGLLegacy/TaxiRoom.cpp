@@ -5,8 +5,9 @@ void TaxiRoom::Init()
     wallTex = LoadTexture2D("assets/textures/clean.jpg");
     floorTex = LoadTexture2D("assets/textures/Taxi.jpg");
     roofTex = LoadTexture2D("assets/textures/polystyrene.jpg");
+    signTex = LoadTexture2D("assets/textures/taxis.jpg");
 
-
+    //[
     ceilingTex = wallTex;
 
     if (wallTex == 0)  wallTex = 0;
@@ -60,14 +61,28 @@ TaxiRoom::TaxiRoom(Point floorCenter, double height, double length, double width
     rightWall(
         Point(
             floorCenter.x,
-            floorCenter.y + (height / 2.0) - 40,
+            floorCenter.y + (height / 2.0),
             floorCenter.z - (length / 2.0 + t / 2.0) + 165
 
         ),
         height * 1.1,
         t,
         width
+    ), backSign(
+        Point(
+
+            floorCenter.x+40,
+            floorCenter.y + (height / 2.0) - 17.0
+            ,
+            floorCenter.z - (length / 2.0 + t / 2.0) + 80.0
+        ),
+        height * 0.23,     // Y
+        width * 0.23,      // Z  ← صار امتداد على الحيط
+        0.1                // X  ← سماكة رفيعة
     )
+
+
+
 {
 }
 
@@ -83,9 +98,19 @@ void TaxiRoom::draw()
     glColor3f(1.0f, 1.0f, 1.0f);
     backWall.drawWithTexture(wallTex, 1, 1);
     leftWall.drawWithTexture(wallTex, 1, 1);
-    rightWall.drawWithTexture(wallTex, 1, 1);
+   // rightWall.drawWithTexture(wallTex, 1, 1);
 
 
+    glColor3f(1, 1, 1);
+
+    // نطبّق التيكستشر فقط على الوجه الأمامي
+    backSign.drawWithTextureOnOneFace(
+
+        signTex,
+        "left",
+        1,
+        1
+    );
 
 
 } 
